@@ -1,1 +1,1 @@
-
+var a = {{site.title}};

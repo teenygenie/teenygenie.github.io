@@ -6,6 +6,7 @@ var app = new Vue({
   el: '#app',
   data: {
     cart: []
+    products: []
   },
   mounted(){
     stripe.products.list(
@@ -13,9 +14,13 @@ var app = new Vue({
       function(err, products) {
         if(err) console.err(`There are no products available ${err}`)
         else {
-          this.cart.push(...products)
+          this.products.push(...products)
         }
       }
     );
   }
+})
+
+Vue.component('shop-front', {
+  props: ['products'],
 })

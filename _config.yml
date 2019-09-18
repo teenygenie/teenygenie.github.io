@@ -24,8 +24,8 @@ copyright: TeenyGenie
 # API settings
 google_api_key:
 stripe_key: 
-  test: pk_live_GztShVdx5rB97teU0h3z0aRo00KYREIulj
-  live: pk_test_lZlQAGZ5ObYelk9awG8xmmSI00vl7JEvVo
+  live: pk_live_GztShVdx5rB97teU0h3z0aRo00KYREIulj
+  test: pk_test_lZlQAGZ5ObYelk9awG8xmmSI00vl7JEvVo
 
 # Build settings
 markdown: kramdown

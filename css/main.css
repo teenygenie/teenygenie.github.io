@@ -1,5 +1,9 @@
 .jumbotron-image {
-  background-image: url("/img/baby-trousers.jpeg");
+  background: url('/img/baby-trousers.jpeg') no-repeat center center fixed;
+  padding-top: 20%;
+  padding-bottom: 20%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
   background-size: cover;
-  height: 100%
+  -o-background-size: cover;
 }

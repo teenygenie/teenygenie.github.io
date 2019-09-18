@@ -4,14 +4,16 @@
 var app = new Vue({
   el: '#app',
   data: {
-    apikey: {{site.stripe_key[site.env]}}
     cart: []
   },
   mounted(){
-    Stripe.products.retrieve(
-      'prod_FpiqPLvBFP7mbj',
-      function(err, product) {
-        // asynchronously called
+    stripe.products.list(
+      {limit: 100},
+      function(err, products) {
+        if(err) console.err(`There are no products available ${err}`)
+        else {
+          this.cart.push(...products)
+        }
       }
     );
   }

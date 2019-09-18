@@ -1,4 +1,5 @@
 # Site settings
+live: false
 title: TeenyGenie
 email: teeny@teeny-genie.com
 description: > # this means to ignore newlines until "baseurl:"
@@ -21,6 +22,8 @@ copyright: TeenyGenie
 
 # API settings
 google_api_key:
+stripe_live_key: pk_live_GztShVdx5rB97teU0h3z0aRo00KYREIulj
+stripe_test_key: pk_test_lZlQAGZ5ObYelk9awG8xmmSI00vl7JEvVo
 
 # Build settings
 markdown: kramdown

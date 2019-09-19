@@ -6,8 +6,13 @@ Vue.component('shop-front', {
   delimiters: ['((', '))'],
   props: ['products'],
   template: `
-    <div class = "container">
-    ((products))
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h3>Easier than rubbing a lamp!</h3>
+                ((product))
+          </div>
+        </div>
     </div>
   `
 })

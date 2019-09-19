@@ -2,6 +2,15 @@
 ---
 var stripe = Stripe('{{site.stripe_key[site.env]}}');
 
+Vue.component('shop-front', {
+  props: ['products'],
+  template: `
+  {{products}}
+  `
+})
+
+
+
 var app = new Vue({
   el: '#app',
   data: {
@@ -17,11 +26,4 @@ var app = new Vue({
   },
   mounted(){
   }
-})
-
-Vue.component('shop-front', {
-  props: ['products'],
-  template: `
-  {{products}}
-  `
 })

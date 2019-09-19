@@ -5,14 +5,15 @@ var stripe = Stripe('{{site.stripe_key[site.env]}}');
 Vue.component('shop-front', {
   props: ['products'],
   template: `
-  {{products}}
-  `
+    ${products}
+  `,
 })
 
 
 
 var app = new Vue({
   el: '#app',
+  delimiters: ['${', '}'],
   data: {
     cart: [],
     products: [

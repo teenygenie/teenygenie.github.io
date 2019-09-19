@@ -4,6 +4,7 @@ var stripe = Stripe('{{site.stripe_key[site.env]}}');
 
 var app = new Vue({
   el: '#app',
+  delimiters: ['{(', ')}'],
   data: {
     cart: [],
     products: [

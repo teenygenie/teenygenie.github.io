@@ -3,8 +3,11 @@
 var stripe = Stripe('{{site.stripe_key[site.env]}}');
 
 Vue.component('shop-front', {
-  delimiters: ['${', '}'],
+  delimiters: ['((', '))'],
   props: ['products'],
+  template: `
+    ((products))
+  `
 })
 
 

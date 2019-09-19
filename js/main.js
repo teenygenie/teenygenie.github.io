@@ -7,7 +7,12 @@ var app = new Vue({
   data: {
     cart: [],
     products: [
-      {{site.data.products[site.env]}}
+      {% for product in site.data.products[site.env] %}
+      {
+        id : {{product.id}},
+        name: {{product.Name}}
+      }
+      {% endfor %}
     ]
   },
   mounted(){

@@ -6,7 +6,9 @@ Vue.component('shop-front', {
   delimiters: ['((', '))'],
   props: ['products'],
   template: `
+    <div class = "container">
     ((products))
+    </div>
   `
 })
 

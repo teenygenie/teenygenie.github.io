@@ -16,15 +16,6 @@ var app = new Vue({
     ]
   },
   mounted(){
-    stripe.products.list(
-      {limit: 100},
-      function(err, products) {
-        if(err) console.err(`There are no products available ${err}`)
-        else {
-          this.products.push(...products)
-        }
-      }
-    );
   }
 })
 

@@ -3,6 +3,7 @@
 var stripe = Stripe('{{site.stripe_key[site.env]}}');
 
 Vue.component('shop-front', {
+  delimiters: ['${', '}'],
   props: ['products'],
 })
 
@@ -10,7 +11,6 @@ Vue.component('shop-front', {
 
 var app = new Vue({
   el: '#app',
-  delimiters: ['${', '}'],
   data: {
     cart: [],
     products: [

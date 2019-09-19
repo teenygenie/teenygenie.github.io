@@ -32,11 +32,7 @@ var app = new Vue({
   el: '#app',
   data: {
     cart: [],
-    products: [
-      {% for product in site.data.products[site.env] %}
-      {{product}}
-      {% endfor %}
-    ]
+    products: {{ site.data.products[site.env] | jsonify  }}
   },
   mounted(){
   }

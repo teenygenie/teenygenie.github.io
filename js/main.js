@@ -4,9 +4,6 @@ var stripe = Stripe('{{site.stripe_key[site.env]}}');
 
 Vue.component('shop-front', {
   props: ['products'],
-  template: `
-    ${products}
-  `,
 })
 
 

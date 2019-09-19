@@ -2,7 +2,7 @@
 ---
 var stripe = Stripe('{{site.stripe_key[site.env]}}');
 
-Vue.component('shop-front', {
+Vue.component('store-front', {
   delimiters: ['((', '))'],
   props: ['products'],
   template: `
@@ -17,6 +17,15 @@ Vue.component('shop-front', {
   `
 })
 
+Vue.component('store-cart',{
+  delimiters: ['((', '))'],
+  props: ['cart'],
+  template: `
+    <div class="col-sm-2 text-center">
+      ((cart))
+    </div>
+  `
+})
 
 
 var app = new Vue({

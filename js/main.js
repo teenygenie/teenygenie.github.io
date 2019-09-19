@@ -8,7 +8,7 @@ Vue.component('store-front', {
   template: `
   <div class="container">
     <div class="row">
-        <div v-for = "product in products" class = "col-sm-12 col-md6 card">
+        <div v-for = "product in products" class = "col-sm-12 col-md-6 card">
           <img src="..." class="card-img-top" alt="...">
           <div class="card-body">
             <p class="card-text">((product.name))</p>

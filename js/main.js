@@ -10,7 +10,13 @@ Vue.component('store-front', {
         <div class="row">
           <div class="col-lg-12 text-center">
             <h3>Easier than rubbing a lamp!</h3>
-                ((product))
+                <div v-for = "product in products" class = "col-sm-12 col-md6 card">
+                  <img src="..." class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <p class="card-text">((product.name))</p>
+                      </div>
+                    </div>
+                </div>
           </div>
         </div>
     </div>

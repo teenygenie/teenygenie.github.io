@@ -9,8 +9,8 @@ var app = new Vue({
     products: [
       {% for product in site.data.products[site.env] %}
       {
-        id : {{product.id}},
-        name: {{product.Name}}
+        id : "{{product.id | escape }}",
+        name: "{{product.Name | escape }}"
       }
       {% endfor %}
     ]

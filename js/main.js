@@ -6,7 +6,9 @@ var app = new Vue({
   el: '#app',
   data: {
     cart: [],
-    products: []
+    products: [
+      {{site.data.products[site.env]}}
+    ]
   },
   mounted(){
     stripe.products.list(

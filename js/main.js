@@ -22,7 +22,7 @@ Vue.component('store-front', {
           <div class="card-body">
             <h4 class="card-title">{{product.name}}</h4>
             <p class="card-text">{{product.description}}</p>
-            <buttton v-for "sku in product.skus" class="btn btn-primary" v-on:click="add(sku)">{{sku.size}} {{sku.colour}}</button>
+            <button v-for = "sku in product.skus" class="btn btn-primary" v-on:click="add(sku)">{{sku.size}} {{sku.colour}}</button>
           </div>
         </div>
       </div>

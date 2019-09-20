@@ -46,8 +46,8 @@ var app = new Vue({
   },
   computed: {
      total: function(){
-      if (cart.length == 0) return 0
-      return cart.reduce((total,item)=>(total+item.price),0)
+      if (this.cart.length == 0) return 0
+      return this.cart.reduce((total,item)=>(total+item.price),0)
      }
   },
   mounted(){

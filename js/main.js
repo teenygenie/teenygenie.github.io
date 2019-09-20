@@ -10,19 +10,19 @@ Vue.component('store-cart-button',{
 Vue.component('store-front', {
   props: ['products'],
   methods: {
-    add: function(info){
-      console.log(info)
+    add: function(product){
+      this.$emit('add',product)
     }
   },
   template: `
   <div class="container">
     <div class="row">
         <div v-for = "product in products" class = "col-sm-12 col-md-6 card">
-          <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+          <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image">
           <div class="card-body">
             <h4 class="card-title">{{product.name}}</h4>
             <p class="card-text">{{product.description}}</p>
-            <a href="#" class="btn btn-primary" v-on:click="add(product)">Add to cart</a>
+            <buttton v-for "sku in product.skus" class="btn btn-primary" v-on:click="add(sku)">{{sku.size}} {{sku.colour}}</button>
           </div>
         </div>
       </div>

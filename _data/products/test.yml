@@ -3,6 +3,7 @@
   id: prod_FpiqPLvBFP7mbj
   skus:
   - name: Red
+    price : 19.95
     id: sku_Fq1kGJGZf9Rgn9
     colour: red
     size: small

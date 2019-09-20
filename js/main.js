@@ -27,8 +27,12 @@ Vue.component('store-front', {
 Vue.component('store-cart-contents',{
   props: ['cart'],
   template: `
-    <div class="col-sm-2 text-center">
-    {{cart}}
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li v-for="item in cart" class="nav-item">
+          <a class="nav-link" href="#">{{item}}</a>
+        </li>
+      </ul>
     </div>
   `
 })

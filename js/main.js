@@ -13,7 +13,7 @@ Vue.component('store-front', {
     add: function(info){
       console.log(info)
     }
-  }
+  },
   template: `
   <div class="container">
     <div class="row">
@@ -22,7 +22,7 @@ Vue.component('store-front', {
           <div class="card-body">
             <h4 class="card-title">{{product.name}}</h4>
             <p class="card-text">{{product.description}}</p>
-            <a href="#" class="btn btn-primary" @clicked="add">Add to cart</a>
+            <a href="#" class="btn btn-primary" @clicked="add(product)">Add to cart</a>
           </div>
         </div>
       </div>

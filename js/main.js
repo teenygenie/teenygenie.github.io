@@ -1,6 +1,3 @@
-var stripe = Stripe('{{site.stripe_key[site.env]}}');
-
-
 Vue.component('store-cart-button',{
   props: ['total'],
   template: `
@@ -41,7 +38,7 @@ var app = new Vue({
   el: '#app',
   data: {
     cart: [],
-    products: {{ site.data.products[site.env] | jsonify  }}
+    products: products
   },
   computed: {
      total: function(){

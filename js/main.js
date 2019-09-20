@@ -1,9 +1,16 @@
----
----
 var stripe = Stripe('{{site.stripe_key[site.env]}}');
 
+
+Vue.component('store-cart-button',{
+  props: ['total'],
+  template: `
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <i class = "fas fa-cart"></i>
+      </button>
+  `
+})
+
 Vue.component('store-front', {
-  delimiters: ['((', '))'],
   props: ['products'],
   template: `
   <div class="container">
@@ -11,7 +18,7 @@ Vue.component('store-front', {
         <div v-for = "product in products" class = "col-sm-12 col-md-6 card">
           <img src="..." class="card-img-top" alt="...">
           <div class="card-body">
-            <p class="card-text">((product.name))</p>
+            <p class="card-text">{{product.name}}</p>
           </div>
         </div>
       </div>
@@ -20,12 +27,11 @@ Vue.component('store-front', {
   `
 })
 
-Vue.component('store-cart',{
-  delimiters: ['((', '))'],
+Vue.component('store-cart-contents',{
   props: ['cart'],
   template: `
     <div class="col-sm-2 text-center">
-      ((cart))
+    {{cart}}
     </div>
   `
 })
@@ -36,6 +42,12 @@ var app = new Vue({
   data: {
     cart: [],
     products: {{ site.data.products[site.env] | jsonify  }}
+  },
+  computed: {
+     total: function(){
+      if (cart.length == 0) return 0
+      return cart.reduce((total,item)=>(total+item.price),0)
+     }
   },
   mounted(){
   }

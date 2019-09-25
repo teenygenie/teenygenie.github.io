@@ -18,15 +18,15 @@ Vue.component('store-checkout',{
         }
     },
     template: `
-        <div>
-            <table>
+        <div class = "container">
+            <table class = "table">
                 <tbody>
                     <tr v-for = "item in cart">
                         <td>{{item.name}}</td><td>{{item.quantity}}</td><td>{{item.price | currency}}</td><td>{{item.price * item.quantity | currency}}</td>
                     </tr>
                 </tbody>
             </table>
-            <div class = "btn" @click="checkout">Buy</div>
+            <div class = "btn btn-success" @click="checkout">Payment</div>
         </div>
     `
 })

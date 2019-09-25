@@ -5,7 +5,7 @@ var products = {{ site.data.products[site.env] | jsonify }};
 var skus = {
   {% for product in site.data.products[site.env] %}
   {% for sku in product.skus %}
-  {% assign sku.productId = product.id %}
+  {% assign sku.productId = "HI" %}
     {{ sku | jsonify }}
   {% endfor %}
   {% endfor %}

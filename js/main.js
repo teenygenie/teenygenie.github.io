@@ -21,6 +21,7 @@ Vue.component('store-checkout',{
                     </tr>
                 </tbody>
             </table>
+            <div class = "btn" :click="$root.checkout">Buy</div>
         </div>
     `
 })
@@ -78,6 +79,13 @@ var app = new Vue({
         Vue.set(this.cart,sku.id,sku)
         Vue.set(this.cart[sku.id],'quantity',1)
       }
+    },
+    checkout: function(){
+        stripe.redirectToCheckout({
+            items: [Object.values(this.cart).map((item)=>({item:item.id, quantity:item.quantity})],
+            successUrl: 'https://teeny-genie.com/success',
+            cancelUrl: 'https://teeny-genie.com/canceled',
+        })
     }
   },
   computed: {

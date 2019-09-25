@@ -50,7 +50,7 @@ Vue.component('store-cart',{
   template: `
       <ul class="nav navbar-nav navbar-right">
         <li class="nav-item"">
-              <button href = "#checkout" class = "btn" :class="{'btn-success': total>0}">
+              <button :href = "{'#checkout':total>0}" class = "btn" :class="{'btn-success': total>0}">
                 <i class = "fas fa-shopping-cart"></i> {{total|currency}}
                 <small v-if = "total>0">Checkout</small>
             </button>

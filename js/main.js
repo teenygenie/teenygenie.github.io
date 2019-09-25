@@ -34,12 +34,12 @@ Vue.component('store-checkout',{
 Vue.component('store-front', {
   props: ['sku'],
   methods: {
-    add: function(sku){
-      this.$root.add(sku)
+    add: function(){
+      this.$root.add(this.sku)
     }
   },
   template: `
-    <small>hi</small>
+    <div class = "btn btn-primary" @click="add">{{sku.name}}</div>
   `
 })
 

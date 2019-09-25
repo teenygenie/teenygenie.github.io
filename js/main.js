@@ -32,14 +32,18 @@ Vue.component('store-checkout',{
 })
 
 Vue.component('store-add', {
-  props: ['sku'],
+  props: ['id'],
   methods: {
     add: function(){
-      this.$root.add(this.sku)
+      this.$root.add(this.id)
+    },
+    remove: function(){
+      this.$root.remove(this.id)
     }
   },
   template: `
-    <div class = "btn btn-primary" @click="add">{{sku.name}}</div>
+    <div class = "btn btn-primary btn-small" @click="add">&plus;</div>
+    <div class = "btn btn-primary btn-small" @click="remove">&plus;</div>
   `
 })
 
@@ -62,15 +66,21 @@ var app = new Vue({
   el: '#app',
   data: {
     cart: {},
-    products: products
+    skus: skus
   },
   methods: {
-    add: function(sku){
-      if(this.cart[sku.id]){
-        this.cart[sku.id].quantity++
+    add: function(id){
+      if(this.cart[id]){
+        this.cart[id].quantity++
       } else {
-        Vue.set(this.cart,sku.id,sku)
-        Vue.set(this.cart[sku.id],'quantity',1)
+        Vue.set(this.cart,id,{
+            sku: this.skus[id],
+            quantity: 0
+        })
+      },
+     remove: function(sku){
+      if(this.cart[idid
+        this.cart[id].quantity == 1 ? Vue.delete(this.cart[id]) : this.cart[id].quantity--
       }
     },
     checkout: function(){
@@ -83,7 +93,8 @@ var app = new Vue({
   },
   computed: {
      total: function(){
-       return Object.values(this.cart).reduce((t, {price, quantity}) => t + price *  quantity, 0)
+       return Object.values(this.cart)
+      .reduce((t, {price, quantity}) => t + price *  quantity, 0)
      }
   },
   mounted(){

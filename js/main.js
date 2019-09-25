@@ -42,7 +42,7 @@ Vue.component('store-cart',{
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
           <i class = "fas fa-shopping-cart"></i>{{total|currency}}
            </a>
-          <ul class="dropdown-menu dropdown-cart" role="menu">
+          <ul v-if = "total > 0" class="dropdown-menu dropdown-cart" role="menu">
               <li v-for = "item in cart">
                   <span class="item">
                     <span class="item-left">

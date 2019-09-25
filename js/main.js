@@ -10,6 +10,17 @@ Vue.filter('currency', function (value) {
     return formatter.format(value);
 });
 
+Vue.component('store-checkout',{
+    props: ['cart'],
+    template: `
+        <div>
+            <span v-for = "item in cart">
+{{item.name}} {{item.quantity}}
+            </span>
+        </div>
+    `
+})
+
 Vue.component('store-front', {
   props: ['products'],
   methods: {

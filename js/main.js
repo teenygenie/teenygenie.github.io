@@ -39,8 +39,7 @@ Vue.component('store-cart',{
   template: `
       <ul class="nav navbar-nav navbar-right">
         <li class="nav-item"">
-              <i class = "fas fa-shopping-cart"></i>{{total|currency}}
-              <button class = "btn btn-success" v-if = "total>0">Checkout</button>
+              <button :class = "'btn'+total>0?:' btn-success':''"><i class = "fas fa-shopping-cart"></i> {{total|currency}}</button>
         </li>
       </ul>
   `

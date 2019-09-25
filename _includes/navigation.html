@@ -1,10 +1,16 @@
 <nav class="navbar bg-light fixed-top">
   <!-- Brand -->
   <span class="navbar-brand" href="#">TeenyGenie</span>
-
-  <!-- Toggler/collapsibe Button -->
-  <store-cart-button :total="total"></store-cart-button>
-
-  <!-- Navbar links -->
-  <store-cart-contents :cart="cart"></store-cart-contents>
+  
+   <!-- Navbar links -->
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Our Story</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Shop</a>
+    </li>
+    <store-cart :cart="cart" :total="total"></store-cart>
+  </ul>
+  
 </nav>

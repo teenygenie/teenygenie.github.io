@@ -14,9 +14,13 @@ Vue.component('store-checkout',{
     props: ['cart'],
     template: `
         <div>
-            <span v-for = "item in cart">
-{{item.name}} {{item.quantity}}
-            </span>
+            <table>
+                <tbody>
+                    <tr v-for = "item in cart">
+                        <td>{{item.name}}</td><td>{{item.quantity}}</td><td>{{item.price | currency}}</td><td>{{item.price * item.quantity | currency}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     `
 })

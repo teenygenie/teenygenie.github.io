@@ -78,7 +78,7 @@ var app = new Vue({
     },
     remove: function(id){
         console.log("Remove",id)
-      if(this.cart[id]) this.cart[id].quantity == 1 ? Vue.delete(this.cart[id]) : this.cart[id].quantity--
+      if(this.cart[id]) this.cart[id].quantity == 1 ? Vue.delete(this.cart,id) : this.cart[id].quantity--
     },
     checkout: function(){
         stripe.redirectToCheckout({

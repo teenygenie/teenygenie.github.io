@@ -2,10 +2,10 @@ Vue.filter('currency', function (value) {
     if (typeof value !== "number") {
         return value;
     }
-    var formatter = new Intl.NumberFormat('en-US', {
+    var formatter = new Intl.NumberFormat('en-GB', {
         style: 'currency',
         currency: 'GBP',
-        minimumFractionDigits: 0
+        minimumFractionDigits: 2
     });
     return formatter.format(value);
 });

@@ -1,8 +1,20 @@
+Vue.filter('currency', function (value) {
+    if (typeof value !== "number") {
+        return value;
+    }
+    var formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'GBP',
+        minimumFractionDigits: 0
+    });
+    return formatter.format(value);
+});
+
 Vue.component('store-cart-button',{
   props: ['total'],
   template: `
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <i class = "fas fa-cart"></i>{{total}}
+        <i class = "fas fa-cart"></i>{{total | currency}}
       </button>
   `
 })

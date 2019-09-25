@@ -10,7 +10,7 @@ var skus = {
       {% for item in sku %}
         {{item[0]}}:{{item[1] | jsonify}},
       {% endfor %}
-    }
+    },
     {% endfor %}
   {% endfor %}
 }

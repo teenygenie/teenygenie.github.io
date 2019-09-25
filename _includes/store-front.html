@@ -1,6 +1,6 @@
 <section id = "products">
   <div class="container">
-    {% for product in site.date.products[site.env] %}
+    {% for product in site.data.products[site.env] %}
       <div class="row">
       <h4>{{product.name}}</h4>
         {% for sku in product %}

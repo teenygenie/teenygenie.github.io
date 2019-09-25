@@ -12,6 +12,11 @@ Vue.filter('currency', function (value) {
 
 Vue.component('store-checkout',{
     props: ['cart'],
+    methods : {
+        checkout : function(){
+            this.$root.checkout()
+        }
+    }
     template: `
         <div>
             <table>
@@ -21,7 +26,7 @@ Vue.component('store-checkout',{
                     </tr>
                 </tbody>
             </table>
-            <div class = "btn" :click="$root.checkout">Buy</div>
+            <div class = "btn" :click="checkout">Buy</div>
         </div>
     `
 })

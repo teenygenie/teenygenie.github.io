@@ -39,11 +39,11 @@ Vue.component('store-cart',{
   template: `
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <div :class="total>0 ? 'dropdown-toggle':''" data-toggle="dropdown" role="button" aria-expanded="false">
               <i class = "fas fa-shopping-cart"></i>{{total|currency}}
           </div>
-          <ul class="dropdown-menu dropdown-cart" role="menu">
-              <li v-if = "total>0" v-for = "item in cart">
+          <ul v-show = "total>0" class="dropdown-menu dropdown-cart" role="menu">
+              <li v-for = "item in cart">
                   <span class="item">
                     <span class="item-left">
                         <img src="http://lorempixel.com/50/50/" alt="" />
@@ -59,7 +59,7 @@ Vue.component('store-cart',{
                 </span>
               </li>
               <li class="divider"></li>
-              <li v-if = "total>0"><a class="text-center" href="">Checkout</a></li>
+              <li ><a class="text-center" href="">Checkout</a></li>
           </ul>
         </li>
       </ul>

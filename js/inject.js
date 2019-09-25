@@ -8,7 +8,7 @@ var skus = {
     '{{sku.id}}':{
           product: {{product.id}},
       {% for item in sku %}
-        '{{item[0]}}':'{{item[1]}}',
+        '{{item[0]}}':{{item[1] | jsonify}},
       {% endfor %}
     }
     {% endfor %}

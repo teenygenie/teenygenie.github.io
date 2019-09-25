@@ -10,8 +10,8 @@ Vue.component('store-cart-button',{
 Vue.component('store-front', {
   props: ['products'],
   methods: {
-    add: function(product){
-      this.$emit('add',product)
+    add: function(sku){
+      this.$root.add(sku)
     }
   },
   template: `
@@ -48,8 +48,18 @@ Vue.component('store-cart-contents',{
 var app = new Vue({
   el: '#app',
   data: {
-    cart: [],
+    cart: {},
     products: products
+  },
+  methods: {
+    add: function(sku){
+      if(cart[sku.id]){
+        cart[sku.id].quantity++
+      } else {
+        Vue.set(cart,sku.id,sku)
+        Vue.set(cart[sku.id],'quantity',1)
+      }
+    }
   },
   computed: {
      total: function(){

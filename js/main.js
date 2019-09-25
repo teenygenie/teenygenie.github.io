@@ -35,32 +35,12 @@ Vue.component('store-front', {
 })
 
 Vue.component('store-cart',{
-  props: ['cart','total'],
+  props: ['total'],
   template: `
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <div :class="total>0 ? 'dropdown-toggle':''" data-toggle="dropdown" role="button" aria-expanded="false">
+        <li class="nav-item"">
               <i class = "fas fa-shopping-cart"></i>{{total|currency}}
-          </div>
-          <ul v-show = "total>0" class="dropdown-menu dropdown-cart" role="menu">
-              <li v-for = "item in cart">
-                  <span class="item">
-                    <span class="item-left">
-                        <img src="http://lorempixel.com/50/50/" alt="" />
-                        <span class="item-info">
-                            <span>{{item.name}}</span>
-                            <span>{{item.quantity}}</span>
-                            <span>{{item.price || currency}}</span>
-                        </span>
-                    </span>
-                    <span class="item-right">
-                        <button class="btn btn-xs btn-danger pull-right">x</button>
-                    </span>
-                </span>
-              </li>
-              <li class="divider"></li>
-              <li ><a class="text-center" href="">Checkout</a></li>
-          </ul>
+              <button class = "btn btn-success" v-if = "total>0">Checkout</button>
         </li>
       </ul>
   `

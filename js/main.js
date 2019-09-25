@@ -74,7 +74,7 @@ var app = new Vue({
     add: function(id){
       console.log("Add",id)
       if(this.cart[id]) this.cart[id].quantity++
-      else Vue.set(this.cart,id,{...skus[id],quantity:0})
+      else Vue.set(this.cart,id,{...skus[id],quantity:1})
     },
     remove: function(id){
         console.log("Remove",id)

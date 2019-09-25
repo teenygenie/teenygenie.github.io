@@ -72,10 +72,12 @@ var app = new Vue({
   },
   methods: {
     add: function(id){
+      console.log("Add",id)
       if(this.cart[id]) this.cart[id].quantity++
       else Vue.set(this.cart,id,{sku: this.skus[id],quantity:1})
     },
     remove: function(id){
+        console.log("Remove",id)
       if(this.cart[id]) this.cart[id].quantity == 1 ? Vue.delete(this.cart[id]) : this.cart[id].quantity--
     },
     checkout: function(){

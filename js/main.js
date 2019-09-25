@@ -70,18 +70,11 @@ var app = new Vue({
   },
   methods: {
     add: function(id){
-      if(this.cart[id]){
-        this.cart[id].quantity++
-      } else {
-        Vue.set(this.cart,id,{
-            sku: this.skus[id],
-            quantity: 0
-        })
-      },
-     remove: function(sku){
-      if(this.cart[idid
-        this.cart[id].quantity == 1 ? Vue.delete(this.cart[id]) : this.cart[id].quantity--
-      }
+      if(this.cart[id]) this.cart[id].quantity++
+      else Vue.set(this.cart,id,{sku: this.skus[id],quantity:1})
+    },
+    remove: function(id){
+      if(this.cart[id]) this.cart[id].quantity == 1 ? Vue.delete(this.cart[id]) : this.cart[id].quantity--
     },
     checkout: function(){
         stripe.redirectToCheckout({

@@ -67,6 +67,7 @@ var app = new Vue({
        Object.keys(this.cart).forEach((sku)=>{
          theTotal += sku.price * sku.quantity
        })
+       return theTotal
      }
   },
   mounted(){

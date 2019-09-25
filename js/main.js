@@ -14,7 +14,7 @@ Vue.component('store-cart-button',{
   props: ['total'],
   template: `
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <i class = "fas fa-cart"></i>{{total | currency}}
+        <i class = "fas fa-shopping-cart"></i>{{total | currency}}
       </button>
   `
 })

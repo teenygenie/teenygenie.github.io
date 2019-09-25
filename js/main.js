@@ -53,18 +53,20 @@ var app = new Vue({
   },
   methods: {
     add: function(sku){
-      if(cart[sku.id]){
-        cart[sku.id].quantity++
+      if(this.cart[sku.id]){
+        this.cart[sku.id].quantity++
       } else {
-        Vue.set(cart,sku.id,sku)
-        Vue.set(cart[sku.id],'quantity',1)
+        Vue.set(this.cart,sku.id,sku)
+        Vue.set(this.cart[sku.id],'quantity',1)
       }
     }
   },
   computed: {
      total: function(){
-      if (this.cart.length == 0) return 0
-      return this.cart.reduce((total,item)=>(total+item.price),0)
+       let theTotal = 0;
+       Object.keys(this.cart).forEach((sku)=>{
+         theTotal += sku.price * sku.quantity
+       })
      }
   },
   mounted(){

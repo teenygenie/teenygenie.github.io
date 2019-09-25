@@ -37,7 +37,7 @@ Vue.component('store-cart-contents',{
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
         <li v-for="item in cart" class="nav-item">
-          <a class="nav-link" href="#">{{item}}</a>
+          {{item.name}} {{item.quantity}} @ {{item.price}}
         </li>
       </ul>
     </div>

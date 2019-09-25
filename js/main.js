@@ -16,7 +16,7 @@ Vue.component('store-checkout',{
         checkout : function(){
             this.$root.checkout()
         }
-    }
+    },
     template: `
         <div>
             <table>

@@ -43,9 +43,15 @@ Vue.component('store-cart',{
                 <i class = "fas fa-shopping-cart"></i>{{total | currency}}
             </div>
             <div class="dropdown-menu" aria-labelledby="navbarCart">
-                <div v-for = "item in cart">
-                    {{item.quantity}} &times; {{item.name}} @ {{item.price}}
-                </div>
+                <table>
+                    <tbody>
+                        <tr v-for = "item in cart">
+                            <td>{{item.name}}</td>
+                            <td>{{item.quantity}}&times;{{item.price | currency}}</td>
+                            <td>{{item.price*item.quantity || currency}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </li>
     </ul>

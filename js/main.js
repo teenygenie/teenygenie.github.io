@@ -32,26 +32,14 @@ Vue.component('store-checkout',{
 })
 
 Vue.component('store-front', {
-  props: ['products'],
+  props: ['sku'],
   methods: {
     add: function(sku){
       this.$root.add(sku)
     }
   },
   template: `
-  <div class="container">
-    <div class="row">
-        <div v-for = "product in products" class = "col-sm-12 col-md-6 card">
-          <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image">
-          <div class="card-body">
-            <h4 class="card-title">{{product.name}}</h4>
-            <p class="card-text">{{product.description}}</p>
-            <button v-for = "sku in product.skus" class="btn btn-primary" v-on:click="add(sku)">{{sku.size}} {{sku.colour}}</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <small>hi</small>
   `
 })
 

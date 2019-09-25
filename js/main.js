@@ -31,7 +31,7 @@ Vue.component('store-checkout',{
     `
 })
 
-Vue.component('store-front', {
+Vue.component('store-add', {
   props: ['sku'],
   methods: {
     add: function(){

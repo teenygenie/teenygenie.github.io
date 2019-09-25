@@ -43,8 +43,8 @@ Vue.component('store-add', {
   },
   template: `
     <div>
-    <div class = "btn btn-primary btn-small" @click="add">&plus;</div>
-    <div class = "btn btn-primary btn-small" @click="remove">&plus;</div>
+        <div class = "btn btn-primary btn-small" @click="add">&plus;</div>
+        <div class = "btn btn-primary btn-small" @click="remove">&plus;</div>
     </div>
   `
 })

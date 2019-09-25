@@ -64,8 +64,8 @@ var app = new Vue({
   computed: {
      total: function(){
        let theTotal = 0;
-       Object.keys(this.cart).forEach((sku)=>{
-         theTotal += sku.price * sku.quantity
+       Object.keys(this.cart).forEach((id)=>{
+         theTotal += this.card[id].quantity *  this.card[id].price
        })
        return theTotal
      }

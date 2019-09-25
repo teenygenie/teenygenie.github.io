@@ -37,16 +37,18 @@ Vue.component('store-front', {
 Vue.component('store-cart',{
   props: ['cart','total'],
   template: `
-    <li class="nav-item dropdown">
-        <div class="nav-link dropdown-toggle" id="navbarCart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class = "fas fa-shopping-cart"></i>{{total | currency}}
-        </div>
-        <div class="dropdown-menu" aria-labelledby="navbarCart">
-            <div v-for = "item in cart">
-                {{item.quantity}} &times; {{item.name}} @ {{item.price}}
+    <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+            <div class="nav-link dropdown-toggle" id="navbarCart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class = "fas fa-shopping-cart"></i>{{total | currency}}
             </div>
-        </div>
-    </li>
+            <div class="dropdown-menu" aria-labelledby="navbarCart">
+                <div v-for = "item in cart">
+                    {{item.quantity}} &times; {{item.name}} @ {{item.price}}
+                </div>
+            </div>
+        </li>
+    </ul>
   `
 })
 

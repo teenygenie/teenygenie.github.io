@@ -63,8 +63,7 @@ var app = new Vue({
   },
   computed: {
      total: function(){
-       let addition = (id)=>{this.cart[id].quantity * this.cart[id].price}
-       return Object.keys(this.cart).reduce((sum,id)=>addition.bind(this),0)
+       return Object.values(this.cart).reduce((t, {price, quantity}) => t + price *  quantity, 0)
      }
   },
   mounted(){

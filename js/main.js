@@ -26,7 +26,7 @@ Vue.component('store-checkout',{
                     </tr>
                 </tbody>
             </table>
-            <div class = "btn" :click="checkout">Buy</div>
+            <div class = "btn" @click="checkout">Buy</div>
         </div>
     `
 })

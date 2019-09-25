@@ -82,7 +82,7 @@ var app = new Vue({
     },
     checkout: function(){
         stripe.redirectToCheckout({
-            items: [Object.values(this.cart).map((item)=>({item:item.id, quantity:item.quantity})],
+            items: [Object.values(this.cart).map((item)=>({item:item.id, quantity:item.quantity}))],
             successUrl: 'https://teeny-genie.com/success',
             cancelUrl: 'https://teeny-genie.com/canceled',
         })

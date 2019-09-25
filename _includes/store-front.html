@@ -1,8 +1,10 @@
 <section id = "products">
   <div class="container">
     {% for product in site.data.products[site.env] %}
-      <div class="row">
-      <h4>{{product.name}}</h4>
+      <div class = "row">
+        <h4>{{product.name}}</h4>
+      </div>
+      <div class = "row">
         {% for sku in product.skus %}
           <div class = "col-sm-6 col-md-3 card">
             <img class="card-img-top" src="https://picsum.photos/200" alt="Card image">

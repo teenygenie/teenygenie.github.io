@@ -8,6 +8,14 @@
   -o-background-size: cover;
 }
 
+ul.dropdown-cart{
+    min-width:250px;
+}
+ul.dropdown-cart li .item{
+    display:block;
+    padding:3px 10px;
+    margin: 3px 0;
+}
 ul.dropdown-cart li .item:hover{
     background-color:#f3f3f3;
 }

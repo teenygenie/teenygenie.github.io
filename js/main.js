@@ -37,24 +37,32 @@ Vue.component('store-front', {
 Vue.component('store-cart',{
   props: ['cart','total'],
   template: `
-    <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-            <div class="nav-link dropdown-toggle" id="navbarCart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class = "fas fa-shopping-cart"></i>{{total | currency}}
-            </div>
-            <div class="dropdown-menu" aria-labelledby="navbarCart">
-                <table>
-                    <tbody>
-                        <tr v-for = "item in cart">
-                            <td>{{item.name}}</td>
-                            <td>{{item.quantity}}&times;{{item.price | currency}}</td>
-                            <td>{{item.price*item.quantity || currency}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class = "fas fa-shopping-cart"></i>{{total|currency}}
+           </a>
+          <ul class="dropdown-menu dropdown-cart" role="menu">
+              <li v-for = "item in cart">
+                  <span class="item">
+                    <span class="item-left">
+                        <img src="http://lorempixel.com/50/50/" alt="" />
+                        <span class="item-info">
+                            <span>{{item.name}}</span>
+                            <span>{{item.quantity}}</span>
+                            <span>{{item.price || currency}}</span>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right">x</button>
+                    </span>
+                </span>
+              </li>
+              <li class="divider"></li>
+              <li><a class="text-center" href="">Checkout</a></li>
+          </ul>
         </li>
-    </ul>
+      </ul>
   `
 })
 

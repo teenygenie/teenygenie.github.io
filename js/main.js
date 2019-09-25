@@ -39,9 +39,9 @@ Vue.component('store-cart',{
   template: `
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          <i class = "fas fa-shopping-cart"></i>{{total|currency}}
-           </a>
+          <div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              <i class = "fas fa-shopping-cart"></i>{{total|currency}}
+          </div>
           <ul class="dropdown-menu dropdown-cart" role="menu">
               <li v-if = "total>0" v-for = "item in cart">
                   <span class="item">

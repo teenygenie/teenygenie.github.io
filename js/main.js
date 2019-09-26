@@ -12,10 +12,13 @@ Vue.filter('currency', function (value) {
 
 Vue.component('store-sku-picker',{
     props:['product'],
-    data: ()=>({
-        skuPicker: skuPicker,
-        colourSelected:Object.key(skuPicker[this.product][0]),
-        sizeSelected:Object.key(skuPicker[this.product][0][0])
+    data: function()=>{
+        return {
+            skuPicker: skuPicker,
+            colourSelected:Object.key(skuPicker[this.product][0]),
+            sizeSelected:Object.key(skuPicker[this.product][0][0])
+        }
+      }
     }),
     template: `
         <div class="btn-group" role="group">

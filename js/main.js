@@ -10,7 +10,7 @@ Vue.filter('currency', function (value) {
     return formatter.format(value);
 });
 
-Vue.component('store-sku-picker'{
+Vue.component('store-sku-picker',{
     props:['product'],
     data: ()=>({
         colourSelected:0,

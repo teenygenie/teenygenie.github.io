@@ -14,8 +14,8 @@ Vue.component('store-sku-picker',{
     props:['product'],
     data: ()=>({
         skuPicker: skuPicker,
-        colourSelected:0,
-        sizeSelected:0
+        colourSelected:"",
+        sizeSelected:""
     }),
     template: `
         <div class="btn-group" role="group">
@@ -26,7 +26,7 @@ Vue.component('store-sku-picker',{
         Size
         </button>
         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-        <a v-for = "size in skuPicker[this.product][this.colourSelected]" class="dropdown-item" href="#" @select="sizeSelected = size">{{size}}</a>
+        <a v-for = "size in Object.keys(skuPicker[this.product][this.colourSelected])" class="dropdown-item" href="#" @select="sizeSelected = size">{{size}}</a>
         </div>
         </div>
         </div>

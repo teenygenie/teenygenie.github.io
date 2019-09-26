@@ -33,3 +33,5 @@ markdown: kramdown
 #Product collection
 collections:
   - products
+
+emptyArray: []

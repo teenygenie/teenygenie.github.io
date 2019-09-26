@@ -1,7 +1,9 @@
 ---
 ---
 {% for product in site.data.products[site.env] %}
+{{site.emptyArray}}
   {% assign _products[product.id] = site.emptyArray %}
+  {{_products}}{{product.id}}
   {% for sku in product.skus %}
     {% if !_products[product.id][sku.colour] %}
       {% assign _products[product.id][sku.colour] = site.emptyArray %}

@@ -6,8 +6,9 @@ const stripe = Stripe('{{site.stripe_key[site.env]}}');
 const products = {{ site.data.products[site.env] | jsonify }};
 const skus = {
 {% for product in site.data.products[site.env] %}
-  {% assign _products = _products | push: product.id %}
+  {% assign _products[product.id] = "" | split : "" %}
   {% for sku in product.skus %}
+  {% assign _products[product.id][sku.colour] = "" | split : "" %}
   {{sku.id}}:{
     product: '{{product.id}}',{% for item in sku %}
     {{item[0]}}:{{item[1] | jsonify}},{% endfor %}

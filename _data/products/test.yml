@@ -5,7 +5,7 @@
   - name: Blue
     price : 19.95
     id: sku_Fq1kGJGZf9Rgn9
-    colour: red
+    colour: blue
     size: small
   - name: Red
     price : 19.95

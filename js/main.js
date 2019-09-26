@@ -18,8 +18,7 @@ Vue.component('store-sku-picker',{
             colourSelected:Object.key(skuPicker[this.product][0]),
             sizeSelected:Object.key(skuPicker[this.product][0][0])
         }
-      }
-    }),
+    },
     template: `
         <div class="btn-group" role="group">
         <button v-for = "colour in Object.keys(skuPicker[this.product])" type="button" :class="{selected : this.colourSelected == colour}" class="btn btn-secondary" @click="colourSelected = colour">{{colour}}</button>

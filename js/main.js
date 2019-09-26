@@ -13,6 +13,7 @@ Vue.filter('currency', function (value) {
 Vue.component('store-sku-picker',{
     props:['product'],
     data: ()=>({
+        skuPicker: skuPicker,
         colourSelected:0,
         sizeSelected:0
     }),

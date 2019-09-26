@@ -3,6 +3,7 @@
     {% for product in site.data.products[site.env] %}
       <div class = "row">
         <h4>{{product.name}}</h4>
+        <store-sku-picker :product="{{product.id}}"></store-sku-picker>
       </div>
       <div class = "row">
         {% for sku in product.skus %}

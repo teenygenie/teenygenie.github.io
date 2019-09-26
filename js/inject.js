@@ -1,15 +1,24 @@
 ---
----  
-{% assign _products = "" | split: "" %}
+---
+{% for product in site.data.products[site.env] %}
+  {% assign _products[product.id] = site.emptyArray %}
+  {% for sku in product.skus %}
+    {% if !_products[product.id][sku.colour] %}
+      {% assign _products[product.id][sku.colour] = site.emptyArray %}
+    {% endif %}
+    {% if !_products[product.id][sku.colour][sku.size] %}
+      {% assign _products[product.id][sku.colour][sku.size] = site.emptyArray %}
+    {% endif %}
+    {% assign _products[product.id][sku.colour][sku.size] = sku.id %}
+  {% endfor %}
+{% endfor %}
+  
 
 const stripe = Stripe('{{site.stripe_key[site.env]}}');
 const products = {{ site.data.products[site.env] | jsonify }};
+{%  assign _products = site.emptyArray %}
 const skus = {
-{% for product in site.data.products[site.env] %}
-  {% assign _product =  "" | split: "" %}
-  {% assign _products = _products | push: _product %}
-  {% for sku in product.skus %}
-  {% assign _products[product.id][sku.colour] = "" | split : "" %}
+{% for product in site.data.products[site.env] %}{% for sku in product.skus %}
   {{sku.id}}:{
     product: '{{product.id}}',{% for item in sku %}
     {{item[0]}}:{{item[1] | jsonify}},{% endfor %}

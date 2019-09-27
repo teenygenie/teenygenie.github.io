@@ -13,11 +13,14 @@ const skus = {
    
 const skuPicker = {};
 {% for product in site.data.products[site.env] %}
+skuPicker[{{product.id | jsonify}}] = []
 {% assign colours = product.skus | map: "colour" %}
 {% assign sizes = product.skus | map: "size" %}
 {% for colour in colours %}
+{% assign cIndex = forloop.index %}
 {% for size in sizes %}
-{{product.id}}{{colour}}{{size}}
+{% assign sIndex = forloop.index %}
+skuPicker[{{product.id | jsonify}}][{{cIndex}}][{{sIndex}}] = d
 {% endfor %}
 {% endfor %}
 {% endfor %}

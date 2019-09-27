@@ -23,7 +23,7 @@ skuPicker['{{product.id}}']['{{sku.colour}}']['{{sku.size}}'] = '{{sku.id}}';
 
 
 {% for product in site.data.products[site.env] %}
-{{product|jsonify}}
+{{product | jsonify}}
 {% for sku in product.skus %}
 {% assign _sku = _sku | push: sku %}
 {% assign _products = _products | push: _sku %}

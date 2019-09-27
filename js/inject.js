@@ -13,8 +13,11 @@ const skus = {
    
 const skuPicker = {};
 {% for product in site.data.products[site.env] %}
-skuPicker['{{product.id}}'] = {};{% for sku in product.skus %}
-{{product.skus | map: "colour"}}
-skuPicker['{{product.id}}']['{{sku.colour}}'] = skuPicker['{{product.id}}']['{{sku.colour}}'] || {};
-skuPicker['{{product.id}}']['{{sku.colour}}']['{{sku.size}}'] = '{{sku.id}}';
-{% endfor %}{% endfor %}
+{% assign colours = product.skus | map: "colour" %}
+{% assign sizes = product.skus | map: "size" %}
+{% for colour in colours %}
+{% for size in sizes %}
+{{product.id}}{{colour}}{{size}}
+{% endfor %}
+{% endfor %}
+{% endfor %}

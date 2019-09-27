@@ -21,14 +21,14 @@ Vue.component('store-sku-picker',{
     },
     template: `
         <div class="btn-group" role="group">
-        <button v-for = "colour in Object.keys(skuPicker[this.product])" type="button" :class="{selected : this.colourSelected == colour}" class="btn btn-secondary" @click="colourSelected = colour">{{colour}}</button>
+        <button v-for = "colour in skuPicker[this.product]" type="button" :class="{selected : this.colourSelected == colour}" class="btn btn-secondary" @click="colourSelected = colour">{{colour}}</button>
 
         <div class="btn-group" role="group">
         <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Size
         </button>
         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-        <a v-for = "size in Object.keys(skuPicker[this.product][this.colourSelected])" class="dropdown-item" href="#" @select="sizeSelected = size">{{size}}</a>
+        <a v-for = "size in skuPicker[this.product][this.colourSelected]" class="dropdown-item" href="#" @select="sizeSelected = size">{{size}}</a>
         </div>
         </div>
         </div>

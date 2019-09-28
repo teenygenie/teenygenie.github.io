@@ -23,7 +23,7 @@ skuPicker[{{product.id | jsonify}}][{{colour | jsonify }}] = {}
 {% for sku in product.skus %}
 {% if sku.colour == colour and sku.size == size %}
 skuPicker[{{product.id | jsonify}}][{{colour | jsonify}}][{{size | jsonify}}] = {{sku.id | jsonify}}
-{% if !root %}
+{% if true %}
 skuPicker[{{product.id | jsonify}}].root = {colour: {{colour | jsonify}}, size: {{size | jsonify}}}
 {% assign root = true %}
 {% endif %}

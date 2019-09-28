@@ -16,7 +16,7 @@ Vue.component('store-sku-picker',{
         return {
             skuPicker: skuPicker,
             colour: Object.keys(skuPicker[this.product])[0],
-            size: Object.keys(Object.keys(skuPicker[this.product])[0])[0]
+            size: Object.keys(skuPicker[this.product][Object.keys(skuPicker[this.product])[0]])[0]
         }
     },
     template: `

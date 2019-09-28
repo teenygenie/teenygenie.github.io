@@ -12,8 +12,9 @@ const skus = {
 
    
 const skuPicker = {};
+const skuRoots = [];
 {% for product in site.data.products[site.env] %}
-{% assign root = false %}
+{% assign rooted = false %}
 skuPicker[{{product.id | jsonify}}] = {}
 {% assign colours = product.skus | map: "colour" | uniq %}
 {% assign sizes = product.skus | map: "size" | uniq %}
@@ -23,9 +24,9 @@ skuPicker[{{product.id | jsonify}}][{{colour | jsonify }}] = {}
 {% for sku in product.skus %}
 {% if sku.colour == colour and sku.size == size %}
 skuPicker[{{product.id | jsonify}}][{{colour | jsonify}}][{{size | jsonify}}] = {{sku.id | jsonify}}
-{% if true %}
-skuPicker[{{product.id | jsonify}}].root = {colour: {{colour | jsonify}}, size: {{size | jsonify}}}
-{% assign root = true %}
+{% if rooted == false %}
+skuRoots[{{product.id | jsonify}}]= {colour: {{colour | jsonify}}, size: {{size | jsonify}}}
+{% assign rooted = true %}
 {% endif %}
 {% endif %}
 {% endfor %}

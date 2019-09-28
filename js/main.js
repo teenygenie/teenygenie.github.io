@@ -15,15 +15,14 @@ Vue.component('store-sku-picker',{
     data: function(){
         return {
             skuPicker: skuPicker,
-            colour: Object.keys(skuPicker[this.product])[0],
-            size: Object.keys(skuPicker[this.product][Object.keys(skuPicker[this.product])[0]])[0]
+            colour: skuPicker[this.product].root.colour,
+            size: skuPicker[this.product].root.size
         }
     },
     template: `
         
         <div class="btn-group" role="group">
         <button v-for = "(item, key, index) in skuPicker[product]" type="button" :class="{selected : colour == key}" class="btn btn-secondary" @click="colour = key">{{key}}</button>
-{{skuPicker}}{{product}}{{skuPicker[product]["red"]["petite"]}}
         <div class="btn-group" role="group">
         <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Size

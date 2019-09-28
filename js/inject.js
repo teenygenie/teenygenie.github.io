@@ -23,7 +23,7 @@ skuPicker[{{product.id | jsonify}}][{{colour | jsonify }}] = []
 {% assign sIndex = forloop.index0 %}
 {% for sku in product.skus %}
 {% if sku.colour == colour and sku.size == size %}
-skuPicker[{{product.id | jsonify}}][{{colour | jsonify}}][{{size | jsonify}}] = {{sku.id}}
+skuPicker[{{product.id | jsonify}}][{{colour | jsonify}}][{{size | jsonify}}] = {{sku.id | jsonify}}
 {% endif %}
 {% endfor %}
 {% endfor %}

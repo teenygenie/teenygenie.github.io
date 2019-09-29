@@ -22,7 +22,7 @@ Vue.component('store-sku-picker',{
     template: `
         <div>    
             <div class="btn-group" role="group">
-                <button v-for = "(colourOption, index) in skus.colours" type="button" :class="{active : colourIndex == index}" class="btn" @click="colourIndex = index; sizeIndex = 0">
+                <button v-for = "(colourOption, index) in skus.colours" type="button" :class="colourIndex == index ? 'btn-info' : 'btn-outline-info'" class="btn" @click="colourIndex = index; sizeIndex = 0">
                     {{colourOption.colour}}
                 </button>
             </div>

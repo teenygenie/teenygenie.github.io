@@ -19,21 +19,13 @@ Vue.component('store-sku-picker',{
             sizeIndex: 0,
         }
     },
-    computed: {
-      colour : function(){
-        return this.skus.colours[colourIndex].colour;
-      },
-      size : function(){
-        return this.skus.colours[colourIndex].sizes[sizeIndex].size
-      }
-    },
     template: `
         
         <div class="btn-group" role="group">
         <button v-for = "(colourOption, index) in skus.colours" type="button" :class="{active : colourIndex == index}" class="btn btn-secondary" @click="colourIndex = index">{{colourOption.colour}}</button>
         <div class="btn-group" role="group">
         <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        size: {{size}}
+        size: {{skus.colours[colourIndex].sizes[sizeIndex].size
         </button>
         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
         <a v-for = "(sizeOption, index) in skus.colours[colourIndex].sizes" class="dropdown-item" @select="sizeIndex = index">{{sizeOption.size}}</a>

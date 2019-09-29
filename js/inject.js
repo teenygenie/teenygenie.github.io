@@ -17,11 +17,11 @@ const picker =
   'id' : {{product.id | jsonify}},
   'colours' : [{% assign colours = product.skus | map: "colour" | uniq %}{% for colour in colours %}{% assign colourSkus = product.skus | where : 'colour', colour %}
     { 
-      'colour' : {{colour | jsonify}}
+      'colour' : {{colour | jsonify}},
       'sizes' : [{% for colourSku in colourSkus %}
         { 
           'size' : {{colourSku.size | jsonify }},
-          'id' : {{colourSku.id | jsonify }}
+          'id' : {{colourSku.id | jsonify }},
         },{% endfor %}
       ],
     },{% endfor %}

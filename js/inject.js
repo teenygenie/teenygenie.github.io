@@ -20,7 +20,7 @@ const skuPicker =
       'colour' : {{sku.colour | jsonify}},{% assign filteredSkus = product.skus | where : 'colour', sku.colour %}
       'sizes' : [{% for filteredSku in filteredSkus %}
         { 
-          'size' : {{filteredSku.size | jsonsify }},
+          'size' : {{filteredSku.size | jsonify }},
           'sku' : {{filteredSku.id | jsonify }}
         },{% endfor %}
       ],

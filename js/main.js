@@ -22,13 +22,13 @@ Vue.component('store-sku-picker',{
     template: `
         <div>    
             <div class="btn-group" role="group">
-                <button v-for = "(colourOption, index) in skus.colours" type="button" :class="colourIndex == index ? 'btn-info' : 'btn-outline-info'" class="btn" @click="colourIndex = index; sizeIndex = false">
+                <button v-for = "(colourOption, index) in skus.colours" type="button" :class="colourIndex == index ? 'btn-info' : 'btn-outline-info'" class="btn" @click="colourIndex = index; sizeIndex = 0">
                     {{colourOption.colour}}
                 </button>
             </div>
             <div class="btn-group" role="group">
                 <button id="btnGroupDrop1" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{skus.colours[colourIndex].sizes[sizeIndex].size || "size"}}
+                    {{skus.colours[colourIndex].sizes[sizeIndex].size}}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                     <div v-for = "(sizeOption, index) in skus.colours[colourIndex].sizes" class="dropdown-item" @click="sizeIndex = index">
@@ -36,7 +36,7 @@ Vue.component('store-sku-picker',{
                     </div>
                 </div>
             </div>
-            <store-add-remove :id = "sizeIndex ? skus.colours[colourIndex].sizes[sizeIndex].id : false"></store-add-remove>
+            <store-add-remove :id = "skus.colours[colourIndex].sizes[sizeIndex].id"></store-add-remove>
         </div>
     `,
 })
@@ -66,16 +66,16 @@ Vue.component('store-add-remove', {
   props: ['id'],
   methods: {
     add: function(){
-      if(id) this.$root.add(this.id)
+      this.$root.add(this.id)
     },
     remove: function(){
-      if(id) this.$root.remove(this.id)
+      this.$root.remove(this.id)
     }
   },
   template: `
     <div>
-        <div class = "btn btn-primary btn-small" @click="add" :class = "id ? '': 'disabled'">&plus;</div>
-        <div class = "btn btn-primary btn-small" @click="remove" :class = "id ? '': 'disabled'">&minus;</div>
+        <div class = "btn btn-primary btn-small" @click="add">&plus;</div>
+        <div class = "btn btn-primary btn-small" @click="remove">&minus;</div>
     </div>
   `
 })

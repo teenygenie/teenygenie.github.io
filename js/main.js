@@ -13,9 +13,8 @@ Vue.filter('currency', function (value) {
 Vue.component('store-sku-picker',{
     props:['product'],
     data: function(){
-        let skus = picker.find(product=>product.id==this.product)
         return {
-            skus: skus,
+            skus: picker.find(product=>product.id==this.product),
             colourIndex: 0,
             sizeIndex: 0,
         }
@@ -27,6 +26,7 @@ Vue.component('store-sku-picker',{
       size : function(){
         return this.skus.colours[colourIndex].sizes[sizeIndex].size
       }
+    },
     template: `
         
         <div class="btn-group" role="group">

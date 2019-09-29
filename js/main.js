@@ -16,13 +16,13 @@ Vue.component('store-sku-picker',{
         return {
             skus: picker.find(product=>product.id==this.id),
             colourIndex: 0,
-            sizeIndex: false,
+            sizeIndex: 0,
         }
     },
     template: `
         <div>    
             <div class="btn-group" role="group">
-                <button v-for = "(colourOption, index) in skus.colours" type="button" :class="{active : colourIndex == index}" class="btn" @click="colourIndex = index; sizeIndex = false">
+                <button v-for = "(colourOption, index) in skus.colours" type="button" :class="{active : colourIndex == index}" class="btn" @click="colourIndex = index; sizeIndex = 0">
                     {{colourOption.colour}}
                 </button>
             </div>

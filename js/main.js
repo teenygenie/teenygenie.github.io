@@ -11,15 +11,16 @@ Vue.filter('currency', function (value) {
 });
 
 Vue.component('store-sku-picker',{
-    props:['product'],
+    props:['id'],
     data: function(){
         return {
-            skus: picker.find(product=>product.id==this.product),
+            skus: picker.find(product=>product.id==this.id),
             colourIndex: 0,
             sizeIndex: 0,
         }
     },
-    template: `     
+    template: `
+        <div>    
         <div class="btn-group" role="group">
         <button v-for = "(colourOption, index) in skus.colours" type="button" :class="{active : colourIndex == index}" class="btn btn-secondary" @click="colourIndex = index">{{colourOption.colour}}</button>
         <div class="btn-group" role="group">
@@ -31,6 +32,7 @@ Vue.component('store-sku-picker',{
         </div>
         </div>
         </div>
+        <store-add-remove :id = "skus.colours[colourIndex].sizes[sizeIndex].id"></store-add-remove>
     `,
 })
 
@@ -55,7 +57,7 @@ Vue.component('store-checkout',{
     `
 })
 
-Vue.component('store-add', {
+Vue.component('store-add-remove', {
   props: ['id'],
   methods: {
     add: function(){

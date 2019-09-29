@@ -31,7 +31,7 @@ Vue.component('store-sku-picker',{
                     {{skus.colours[colourIndex].sizes[sizeIndex].size}}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                    <div v-for = "(sizeOption, index) in skus.colours[colourIndex].sizes" class="dropdown-item" @select="sizeIndex = index">
+                    <div v-for = "(sizeOption, index) in skus.colours[colourIndex].sizes" class="dropdown-item" @click="sizeIndex = index">
                         {{sizeOption.size}}
                     </div>
                 </div>

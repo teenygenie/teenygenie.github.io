@@ -18,12 +18,12 @@ const skuPicker = [{
 {% for sku in product.skus %}
 {
 'colour' : {{sku.colour | jsonify}},
-{% assign filteredSkus = product.skus | where : 'colour',colour %}
+{% assign filteredSkus = product.skus | where : 'colour', "red" %}
 'sizes' : [
 {% for filteredSku in filteredSkus %}
 {
 'size' : {{filteredSku.size | jsonsify }},
-'sku' : {{filteredSku.id}}
+'sku' : {{filteredSku.id | jsonify }}
 },
 {% endfor %}
 ]},

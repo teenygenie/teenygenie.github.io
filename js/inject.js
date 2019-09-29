@@ -11,17 +11,17 @@ const skus = {
 };
 
    
-const skuPicker = 
+const picker = 
 [{% for product in site.data.products[site.env] %}
 {
-  'product' : {{product.id | jsonify}},
+  'id' : {{product.id | jsonify}},
   'colours' : [{% for sku in product.skus %}
     { 
       'colour' : {{sku.colour | jsonify}},{% assign filteredSkus = product.skus | where : 'colour', sku.colour %}
       'sizes' : [{% for filteredSku in filteredSkus %}
         { 
           'size' : {{filteredSku.size | jsonify }},
-          'sku' : {{filteredSku.id | jsonify }}
+          'id' : {{filteredSku.id | jsonify }}
         },{% endfor %}
       ],
     },{% endfor %}

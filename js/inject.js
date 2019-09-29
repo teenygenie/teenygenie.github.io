@@ -11,26 +11,24 @@ const skus = {
 };
 
    
-const skuPicker = {};
-const skuRoots = [];
+const skuPicker = [{
 {% for product in site.data.products[site.env] %}
-{% assign rooted = false %}
-skuPicker[{{product.id | jsonify}}] = {}
-{% assign colours = product.skus | map: "colour" | uniq %}
-{% assign sizes = product.skus | map: "size" | uniq %}
-{% for colour in colours %}
-skuPicker[{{product.id | jsonify}}][{{colour | jsonify }}] = {}
-{% for size in sizes %}
+'product' : {{product.id | jsonify}},
+'colours' : [
 {% for sku in product.skus %}
-{% if sku.colour == colour and sku.size == size %}
-skuPicker[{{product.id | jsonify}}][{{colour | jsonify}}][{{size | jsonify}}] = {{sku.id | jsonify}}
-{% if rooted == false %}
-skuRoots[{{product.id | jsonify}}]= {colour: {{colour | jsonify}}, size: {{size | jsonify}}}
-{% assign rooted = true %}
-{% endif %}
-{% endif %}
+{
+'colour' : {{sku.colour | jsonify}},
+{% assign filteredSkus = product.skus | where : 'colour',colour}
+'sizes' : [
+{% for filteredSku in filteredSkus %}
+{
+'size' : {{filteredSku.size | jsonsify }},
+'sku' : {{filteredSku.id}}
+},
 {% endfor %}
+]},
 {% endfor %}
+]},
 {% endfor %}
-{% endfor %}
+}]
 

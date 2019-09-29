@@ -27,7 +27,7 @@ Vue.component('store-sku-picker',{
                 </button>
             </div>
             <div class="btn-group" role="group">
-                <button id="btnGroupDrop1" type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button id="btnGroupDrop1" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{skus.colours[colourIndex].sizes[sizeIndex].size || "size"}}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">

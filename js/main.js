@@ -36,7 +36,7 @@ Vue.component('store-sku-picker',{
                     </div>
                 </div>
             </div>
-            <store-add-remove :id = "skus.colours[colourIndex].sizes[sizeIndex].id"></store-add-remove>
+            <store-add-remove :id = "sizeIndex ? skus.colours[colourIndex].sizes[sizeIndex].id : false"></store-add-remove>
         </div>
     `,
 })
@@ -66,16 +66,16 @@ Vue.component('store-add-remove', {
   props: ['id'],
   methods: {
     add: function(){
-      this.$root.add(this.id)
+      if(id) this.$root.add(this.id)
     },
     remove: function(){
-      this.$root.remove(this.id)
+      if(id) this.$root.remove(this.id)
     }
   },
   template: `
     <div>
-        <div class = "btn btn-primary btn-small" @click="add">&plus;</div>
-        <div class = "btn btn-primary btn-small" @click="remove">&minus;</div>
+        <div class = "btn btn-primary btn-small" @click="add" :class = "id ? '': 'disabled'">&plus;</div>
+        <div class = "btn btn-primary btn-small" @click="remove" :class = "id ? '': 'disabled'">&minus;</div>
     </div>
   `
 })

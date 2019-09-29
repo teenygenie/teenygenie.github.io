@@ -13,22 +13,30 @@ Vue.filter('currency', function (value) {
 Vue.component('store-sku-picker',{
     props:['product'],
     data: function(){
+        let skus = picker.find(product=>product.id==this.product)
         return {
-            skuPicker: skuPicker[this.product],
-            colour: skuRoots[this.product].colour,
-            size: skuRoots[this.product].size
+            skus: skus,
+            colourIndex: 0,
+            sizeIndex: 0,
         }
     },
+    computed: {
+      colour : function(){
+        return this.skus.colours[colourIndex].colour;
+      },
+      size : function(){
+        return this.skus.colours[colourIndex].sizes[sizeIndex].size
+      }
     template: `
         
         <div class="btn-group" role="group">
-        <button v-for = "(item, key, index) in skuPicker" type="button" :class="{active : colour == key}" class="btn btn-secondary" @click="colour = key">{{key}}</button>
+        <button v-for = "(colourOption, index) in skus.colours" type="button" :class="{active : colourIndex == index}" class="btn btn-secondary" @click="colourIndex = index">{{colourOption.colour}}</button>
         <div class="btn-group" role="group">
         <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         size: {{size}}
         </button>
         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-        <a v-for = "(item, key, index) in skuPicker[colour]" class="dropdown-item" href="#" @select="size = key">{{key}}</a>
+        <a v-for = "(sizeOption, index) in skus.colours[colourIndex].sizes" class="dropdown-item" @select="sizeIndex = index">{{sizeOption.size}}</a>
         </div>
         </div>
         </div>

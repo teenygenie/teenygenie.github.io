@@ -21,18 +21,23 @@ Vue.component('store-sku-picker',{
     },
     template: `
         <div>    
-        <div class="btn-group" role="group">
-        <button v-for = "(colourOption, index) in skus.colours" type="button" :class="{active : colourIndex == index}" class="btn btn-secondary" @click="colourIndex = index">{{colourOption.colour}}</button>
-        <div class="btn-group" role="group">
-        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        size: {{skus.colours[colourIndex].sizes[sizeIndex].size}}
-        </button>
-        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-        <a v-for = "(sizeOption, index) in skus.colours[colourIndex].sizes" class="dropdown-item" @select="sizeIndex = index">{{sizeOption.size}}</a>
+            <div class="btn-group" role="group">
+                <button v-for = "(colourOption, index) in skus.colours" type="button" :class="{active : colourIndex == index}" class="btn btn-secondary" @click="colourIndex = index">
+                    {{colourOption.colour}}
+                </button>
+            </div>
+            <div class="btn-group" role="group">
+                <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{skus.colours[colourIndex].sizes[sizeIndex].size}}
+                </button>
+                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <div v-for = "(sizeOption, index) in skus.colours[colourIndex].sizes" class="dropdown-item" @select="sizeIndex = index">
+                        {{sizeOption.size}}
+                    </div>
+                </div>
+            </div>
+            <store-add-remove :id = "skus.colours[colourIndex].sizes[sizeIndex].id"></store-add-remove>
         </div>
-        </div>
-        </div>
-        <store-add-remove :id = "skus.colours[colourIndex].sizes[sizeIndex].id"></store-add-remove>
     `,
 })
 
@@ -48,7 +53,7 @@ Vue.component('store-checkout',{
             <table class = "table">
                 <tbody>
                     <tr v-for = "item in cart">
-                        <td>{{item.name}}</td><td>{{item.quantity}}</td><td>{{item.price | currency}}</td><td>{{item.price * item.quantity | currency}}</td>
+                        <td>{{item.name}} ({{item.colour}} {{item.size}})</td><td>{{item.quantity}}</td><td>{{item.price | currency}}</td><td>{{item.price * item.quantity | currency}}</td>
                     </tr>
                 </tbody>
             </table>

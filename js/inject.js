@@ -11,24 +11,27 @@ const skus = {
 };
 
    
-const skuPicker = [{
+const skuPicker = 
+[{
 {% for product in site.data.products[site.env] %}
-'product' : {{product.id | jsonify}},
-'colours' : [
+  'product' : {{product.id | jsonify}},
+  'colours' : [
 {% for sku in product.skus %}
-{
-'colour' : {{sku.colour | jsonify}},
-{% assign filteredSkus = product.skus | where : 'colour', "red" %}
-'sizes' : [
+    { 
+      'colour' : {{sku.colour | jsonify}},
+{% assign filteredSkus = product.skus | where : 'colour', sku.colour %}
+      'sizes' : [
 {% for filteredSku in filteredSkus %}
-{
-'size' : {{filteredSku.size | jsonsify }},
-'sku' : {{filteredSku.id | jsonify }}
-},
+        { 
+          'size' : {{filteredSku.size | jsonsify }},
+          'sku' : {{filteredSku.id | jsonify }}
+        },
 {% endfor %}
-]},
+      ],
+    },
 {% endfor %}
-]},
+  },
+],
 {% endfor %}
 }]
 

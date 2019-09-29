@@ -12,8 +12,9 @@ const skus = {
 
    
 const skuPicker = 
-[{
+[
 {% for product in site.data.products[site.env] %}
+{
   'product' : {{product.id | jsonify}},
   'colours' : [
 {% for sku in product.skus %}
@@ -30,8 +31,8 @@ const skuPicker =
       ],
     },
 {% endfor %}
-  },
-],
+  ],
+},
 {% endfor %}
-}]
+]
 

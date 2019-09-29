@@ -15,13 +15,13 @@ const picker =
 [{% for product in site.data.products[site.env] %}
 {
   'id' : {{product.id | jsonify}},
-  'colours' : [{% for sku in product.skus %}
+  'colours' : [{% for colour in product.skus | map: "colour" | uniq %}{% assign colourSkus = product.skus | where : 'colour', colour %}
     { 
-      'colour' : {{sku.colour | jsonify}},{% assign filteredSkus = product.skus | where : 'colour', sku.colour %}
-      'sizes' : [{% for filteredSku in filteredSkus %}
+      'colour' : {{colour | jsonify}}
+      'sizes' : [{% for colourSku in colourSkus %}
         { 
-          'size' : {{filteredSku.size | jsonify }},
-          'id' : {{filteredSku.id | jsonify }}
+          'size' : {{colourSku.size | jsonify }},
+          'id' : {{colourSku.id | jsonify }}
         },{% endfor %}
       ],
     },{% endfor %}

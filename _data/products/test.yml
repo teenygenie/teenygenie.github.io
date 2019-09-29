@@ -2,15 +2,25 @@
 - name: Genie Pants
   id: prod_FpiqPLvBFP7mbj
   skus:
+  - name: Blue (large)
+    price : 19.95
+    id: sku_FtwVkcDFCxA7fZ
+    colour: blue
+    size: large
+  - name: Blue (medium)
+    price : 19.95
+    id: sku_FtwVF6XqPEJvRc
+    colour: blue
+    size: medium (small)
   - name: Blue
     price : 19.95
     id: sku_Fq1kGJGZf9Rgn9
     colour: blue
     size: small
-  - name: Red
+  - name: Red (small)
     price : 19.95
     id: sku_FpiqqQebyBNHo2
     colour: red
-    size: petite
+    size: small
 
 

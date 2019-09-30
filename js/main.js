@@ -64,13 +64,12 @@ Vue.component('store-sku-picker',{
                     {{colourOption.colour}}
                 </button>
             </div>
-            <br>
             <div class="btn-group btn-group-sm" role="group">
                 <div v-for = "(sizeOption, index) in picker.colours[colourIndex].sizes" :class="sizeIndex == index ? 'btn-info' : 'btn-outline-info'" class="btn" @click="chooseSize(index)">
                     {{sizeOption.size}}
                 </div>
             </div>
-            <br>
+            <br><br>
             <store-add-remove :id = "picker.colours[colourIndex].sizes[sizeIndex].id"></store-add-remove>
         </div>
     `,

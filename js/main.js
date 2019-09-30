@@ -23,7 +23,7 @@ Vue.component('store-product',{
         img: function(img){
             this.img = img
         }
-    }
+    },
     template: `
         <div class = "card">
             <img class="card-img-top" :src="product.img" alt="Card image">

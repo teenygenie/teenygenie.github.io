@@ -1,24 +1,25 @@
 ---
 - name: Genie Pants
+  description: Soft, comfortable, sustainably sourced magic
   id: prod_FpiqPLvBFP7mbj
   skus:
-  - name: Blue (large)
+  - name: Blue
     img: https://picsum.photos/300/200?12
     price : 19.95
     id: sku_FtwVkcDFCxA7fZ
     colour: blue
     size: large
-  - name: Blue (medium)
+  - name: Blue
     price : 19.95
     id: sku_FtwVF6XqPEJvRc
     colour: blue
     size: medium
-  - name: Blue (small)
+  - name: Blue
     price : 19.95
     id: sku_Fq1kGJGZf9Rgn9
     colour: blue
     size: small
-  - name: Red (small)
+  - name: Red
     img: https://picsum.photos/300/200?2
     price : 19.95
     id: sku_FpiqqQebyBNHo2

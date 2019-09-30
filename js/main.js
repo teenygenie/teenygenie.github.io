@@ -44,13 +44,12 @@ Vue.component('store-sku-picker',{
         return {
             picker: picker.find(product=>product.id == this.id),
             colourIndex: 0,
-            sizeIndex: false,
+            sizeIndex: 0,
         }
     },
     methods: {
         chooseColour : function(colourIndex){
             this.colourIndex = colourIndex;
-            this.sizeIndex = false
             $parent.img(this.picker.colours[this.colourIndex].img)
         },
         chooseSize : function(sizeIndex){
@@ -71,7 +70,7 @@ Vue.component('store-sku-picker',{
                 </div>
             </div>
             <br>
-            <store-add-remove :id = "sizeIndex ? picker.colours[colourIndex].sizes[sizeIndex].id : false"></store-add-remove>
+            <store-add-remove :id = "sicker.colours[colourIndex].sizes[sizeIndex].id"></store-add-remove>
         </div>
     `,
 })
@@ -101,16 +100,16 @@ Vue.component('store-add-remove', {
   props: ['id'],
   methods: {
     add: function(){
-      if(id) this.$root.add(this.id)
+      this.$root.add(this.id)
     },
     remove: function(){
-      if(id) this.$root.remove(this.id)
+      this.$root.remove(this.id)
     }
   },
   template: `
     <div>
-        <div class = "btn btn-primary btn-small" @click="add" :class = "{disabled : id==false}">&plus;</div>
-        <div class = "btn btn-primary btn-small" @click="remove" :class =  "{disabled : id==false}">&minus;</div>
+        <div class = "btn btn-primary btn-small" @click="add">&plus;</div>
+        <div class = "btn btn-primary btn-small" @click="remove">&minus;</div>
     </div>
   `
 })

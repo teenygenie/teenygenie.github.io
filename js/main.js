@@ -49,8 +49,8 @@ Vue.component('store-sku-picker',{
     },
     methods: {
         chooseColour : function(colourIndex){
+            this.sizeIndex = this.picker.colours[colourIndex].sizes.findIndex(sizeOption=>sizeOption.size==this.picker.colours[this.colourIndex].sizes[this.sizeIndex].size) || 0;
             this.colourIndex = colourIndex;
-            this.sizeIndex = this.picker.colours[this.colourIndex].sizes.findIndex(sizeOption=>sizeOption.size==this.picker.colours[this.colourIndex].sizes[this.sizeIndex].size) || 0;
             this.$parent.changeImage(this.picker.colours[this.colourIndex].img);
         },
         chooseSize : function(sizeIndex){

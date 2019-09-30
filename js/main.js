@@ -88,7 +88,7 @@ Vue.component('store-checkout',{
             <table class = "table">
                 <tbody>
                     <tr v-for = "item in cart">
-                        <td>{{item.name}} ({{item.colour}} {{item.size}})</td><td>{{item.quantity}}</td><td>{{item.price | currency}}</td><td>{{item.price * item.quantity | currency}}</td>
+                        <td>{{item.name}}<br><small>{{item.colour}} {{item.size}}</small></td><td>{{item.quantity}}</td><td>{{item.price | currency}}</td><td>{{item.price * item.quantity | currency}}</td>
                     </tr>
                 </tbody>
             </table>

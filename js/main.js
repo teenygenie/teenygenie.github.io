@@ -59,13 +59,13 @@ Vue.component('store-sku-picker',{
     },
     template: `
         <div>    
-            <div class="btn-group" role="group">
+            <div class="btn-group btn-group-sm" role="group">
                 <button v-for = "(colourOption, index) in picker.colours" type="button" :class="colourIndex == index ? 'btn-info' : 'btn-outline-info'" class="btn" @click="chooseColour(index)">
                     {{colourOption.colour}}
                 </button>
             </div>
             <br>
-            <div class="btn-group" role="group">
+            <div class="btn-group btn-group-sm" role="group">
                 <div v-for = "(sizeOption, index) in picker.colours[colourIndex].sizes" :class="sizeIndex == index ? 'btn-info' : 'btn-outline-info'" class="btn" @click="chooseSize(index)">
                     {{sizeOption.size}}
                 </div>

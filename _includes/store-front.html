@@ -3,7 +3,7 @@
     {% for product in site.data.products[site.env] %}
       <div class = "row">
         <div class = "col-xs-4">
-          <store-product :id = "{{product.id}}"></store-product>
+          <store-product :id = "'{{product.id}}'"></store-product>
         </div><!--col-->
       </div><!--row-->
     {% endfor %}

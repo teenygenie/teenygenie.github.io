@@ -3,7 +3,7 @@
   id: prod_FpiqPLvBFP7mbj
   skus:
   - name: Blue (large)
-    img: https://picsum.photos/200/300?random=1
+    img: https://picsum.photos/300/200
     price : 19.95
     id: sku_FtwVkcDFCxA7fZ
     colour: blue
@@ -19,7 +19,7 @@
     colour: blue
     size: small
   - name: Red (small)
-    img: https://picsum.photos/200/300?random=2
+    img: https://picsum.photos/300/200
     price : 19.95
     id: sku_FpiqqQebyBNHo2
     colour: red

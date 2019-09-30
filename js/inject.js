@@ -16,7 +16,7 @@ const picker = [{% for product in site.data.products[site.env] %}
   'colours' : [{% assign colours = product.skus | map: "colour" | uniq %}{% for colour in colours %}{% assign colourSkus = product.skus | where : 'colour', colour %}
     { 
       'colour' : {{colour | jsonify}},
-      'img' : {{colourSkus | map: "img" | first}}
+      'img' : {{colourSkus | map: "img" | first | jsonify}}
       'sizes' : [{% for colourSku in colourSkus %}
         { 
           'size' : {{colourSku.size | jsonify }},

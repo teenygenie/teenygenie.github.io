@@ -70,7 +70,7 @@ Vue.component('store-sku-picker',{
                 </div>
             </div>
             <br>
-            <store-add-remove :id = "sicker.colours[colourIndex].sizes[sizeIndex].id"></store-add-remove>
+            <store-add-remove :id = "picker.colours[colourIndex].sizes[sizeIndex].id"></store-add-remove>
         </div>
     `,
 })

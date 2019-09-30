@@ -84,6 +84,7 @@ Vue.component('store-checkout',{
     },
     template: `
         <div class = "container" v-if = "Object.keys(cart).length > 0">
+            <h3>Your shopping cart</h3>
             <table class = "table">
                 <tbody>
                     <tr v-for = "item in cart">

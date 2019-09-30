@@ -20,7 +20,7 @@ Vue.component('store-product',{
         }
     },
     methods: {
-        img: function(img){
+        changeImage: function(img){
             this.img = img
         }
     },
@@ -50,7 +50,7 @@ Vue.component('store-sku-picker',{
     methods: {
         chooseColour : function(colourIndex){
             this.colourIndex = colourIndex;
-            $parent.img(this.picker.colours[this.colourIndex].img)
+            $parent.changeImage(this.picker.colours[this.colourIndex].img)
         },
         chooseSize : function(sizeIndex){
             this.sizeIndex = sizeIndex

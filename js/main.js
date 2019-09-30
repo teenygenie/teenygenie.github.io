@@ -13,17 +13,24 @@ Vue.filter('currency', function (value) {
 Vue.component('store-product',{
     props:['id'],
     data: function(){
+        let product = products.find(product=>product.id == this.id)
         return {
-            product : products.find(product=>product.id == this.id)
+            product : product,
+            img : product.img
         }
     },
+    methods: {
+        img: function(img){
+            this.img = img
+        }
+    }
     template: `
         <div class = "card">
             <img class="card-img-top" :src="product.img" alt="Card image">
               <div class="card-body">
                 <h4 class="card-title">{{product.name}}</h4>
                 <p class="card-text">{{product.description}}</p>
-                <store-sku-picker :id="'{{product.id}}'"></store-sku-picker>
+                <store-sku-picker :id="id"></store-sku-picker>
               </div><!--body-->
         </div><!--card-->
     `
@@ -35,29 +42,36 @@ Vue.component('store-sku-picker',{
     props:['id'],
     data: function(){
         return {
-            skus: picker.find(product=>product.id == this.id),
+            picker: picker.find(product=>product.id == this.id),
             colourIndex: 0,
-            sizeIndex: 0,
+            sizeIndex: false,
+        }
+    },
+    methods: {
+        chooseColour : function(colourIndex){
+            this.colourIndex = colourIndex;
+            this.sizeIndex = false
+            $parent.img(this.picker.colours[this.colourIndex].img)
+        },
+        chooseSize : function(sizeIndex){
+            this.sizeIndex = sizeIndex
         }
     },
     template: `
         <div>    
             <div class="btn-group" role="group">
-                <button v-for = "(colourOption, index) in skus.colours" type="button" :class="colourIndex == index ? 'btn-info' : 'btn-outline-info'" class="btn" @click="colourIndex = index; sizeIndex = 0">
+                <button v-for = "(colourOption, index) in picker.colours" type="button" :class="colourIndex == index ? 'btn-info' : 'btn-outline-info'" class="btn" @click="chooseColour(index)">
                     {{colourOption.colour}}
                 </button>
             </div>
+            <br>
             <div class="btn-group" role="group">
-                <button id="btnGroupDrop1" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{skus.colours[colourIndex].sizes[sizeIndex].size}}
-                </button>
-                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                    <div v-for = "(sizeOption, index) in skus.colours[colourIndex].sizes" class="dropdown-item" @click="sizeIndex = index">
-                        {{sizeOption.size}}
-                    </div>
+                <div v-for = "(sizeOption, index) in picker.colours[colourIndex].sizes" :class="sizeIndex == index ? 'btn-info' : 'btn-outline-info'" class="btn" @click="chooseSize(index)">
+                    {{sizeOption.size}}
                 </div>
             </div>
-            <store-add-remove :id = "skus.colours[colourIndex].sizes[sizeIndex].id"></store-add-remove>
+            <br>
+            <store-add-remove :id = "sizeIndex ? picker.colours[colourIndex].sizes[sizeIndex].id : false"></store-add-remove>
         </div>
     `,
 })
@@ -87,16 +101,16 @@ Vue.component('store-add-remove', {
   props: ['id'],
   methods: {
     add: function(){
-      this.$root.add(this.id)
+      if(id) this.$root.add(this.id)
     },
     remove: function(){
-      this.$root.remove(this.id)
+      if(id) this.$root.remove(this.id)
     }
   },
   template: `
     <div>
-        <div class = "btn btn-primary btn-small" @click="add">&plus;</div>
-        <div class = "btn btn-primary btn-small" @click="remove">&minus;</div>
+        <div class = "btn btn-primary btn-small" @click="add" :class = "{disabled : id==false}">&plus;</div>
+        <div class = "btn btn-primary btn-small" @click="remove" :class =  "{disabled : id==false}">&minus;</div>
     </div>
   `
 })

@@ -10,11 +10,32 @@ Vue.filter('currency', function (value) {
     return formatter.format(value);
 });
 
+Vue.component('store-product',{
+    props:['id'],
+    data: function(){
+        return {
+            product : products.find(product=>product.id == this.id)
+        }
+    },
+    template: `
+        <div class = "card">
+            <img class="card-img-top" :src="product.img" alt="Card image">
+              <div class="card-body">
+                <h4 class="card-title">{{product.name}}</h4>
+                <p class="card-text">{{product.description}}</p>
+                <store-sku-picker :id="'{{product.id}}'"></store-sku-picker>
+              </div><!--body-->
+        </div><!--card-->
+    `
+})
+
+
+
 Vue.component('store-sku-picker',{
     props:['id'],
     data: function(){
         return {
-            skus: picker.find(product=>product.id==this.id),
+            skus: picker.find(product=>product.id == this.id),
             colourIndex: 0,
             sizeIndex: 0,
         }

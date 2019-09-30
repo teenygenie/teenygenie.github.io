@@ -2,7 +2,7 @@
   <div class="container">
     {% for product in site.data.products[site.env] %}
       <div class = "row">
-        <div class = "col-xs-4">
+        <div style = "width:18 rem;">
           <store-product :id = "'{{product.id}}'"></store-product>
         </div><!--col-->
       </div><!--row-->

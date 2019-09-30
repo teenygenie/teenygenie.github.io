@@ -16,7 +16,7 @@ Vue.component('store-product',{
         let product = products.find(product=>product.id == this.id)
         return {
             product : product,
-            img : product.img
+            img : product.skus[0].img
         }
     },
     methods: {
